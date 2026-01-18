@@ -1,8 +1,8 @@
 local api = vim.api
 local set_extmark = api.nvim_buf_set_extmark
 local conf = require("hacks.colorify").options
-local utils = require "ui.colorify.utils"
-local ns = require("ui.colorify.state").ns
+local utils = require "hacks.colorify.utils"
+local ns = require("hacks.colorify.state").ns
 local needs_hl = utils.not_colored
 
 local M = {}

@@ -9,7 +9,7 @@ function M.setup(opts)
   if not configs.inline_js_ls then
     configs.inline_js_ls = {
       default_config = {
-        cmd = { vim.stdpath("data") .. "/inline-js-ls/js/src/server.js" },
+        cmd = { vim.fn.stdpath("data") .. "/inline-js-ls/js/src/server.js" },
         filetypes = filetypes,
         root_dir = function() return vim.loop.cwd() end,
         settings = settings,

@@ -20,6 +20,8 @@ local function attach_image_lifecycle(buf, img)
   })
 end
 
+local M = {}
+
 function M.setup()
   vim.api.nvim_create_autocmd("BufReadPost", {
     pattern = "*.pdf",
@@ -74,3 +76,4 @@ function M.setup()
   })
 end
 
+return M

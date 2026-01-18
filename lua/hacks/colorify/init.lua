@@ -4,8 +4,6 @@ local api = vim.api
 local state = require("hacks.colorify.state")
 state.ns = api.nvim_create_namespace("Colorify")
 
-M.attach = require("hacks.colorify.attach")
-
 M.options = {
   mode = "virtual", -- fg, bg, virtual
   virt_text = "󱓻 ",
@@ -15,6 +13,7 @@ M.options = {
 function M.setup(opts)
 
   M.options = vim.tbl_deep_extend("force", M.options, opts or {})
+  M.attach = require("hacks.colorify.attach")
   
   api.nvim_create_autocmd({
     "TextChanged",
