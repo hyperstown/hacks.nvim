@@ -7,14 +7,14 @@ It solved my problem however and it *might* solve yours.
 
 ### Hacks list:
 
-| **Hack**     | **Description**                                                                                                | **Require setup** |
-|--------------|----------------------------------------------------------------------------------------------------------------|-------------------|
-| term         | [NvChad](https://github.com/NvChad/ui) term + tabs                                                             |         NO        |
-| cspell-lang  | Collection of commands that allow easy language installation                                                   |         YES       |
-| inline-js-ls | Supplementary LSP for html-lsp that enables js features in inline (`<script>`) tags. Depends on lspconfig      |         NO        |
-| pdf          | Adds support for viewing PDF documents inside nvim. Depends on [image.nvim](https://github.com/3rd/image.nvim) |         YES       |
-| mouse        | Various mouse utils in case you can't merry just your keyboard                                                 |         NO        |
-| colorify     | [NvChad](https://github.com/NvChad/ui) colorify + color picker (WIP)                                           |         NO        |
+| **Hack**     | **Description**                                                                                                |
+|--------------|----------------------------------------------------------------------------------------------------------------|
+| term         | [NvChad](https://github.com/NvChad/ui) term + tabs                                                             |
+| cspell-lang  | Collection of commands that allow easy language installation                                                   |
+| inline-js-ls | Supplementary LSP for html-lsp that enables js features in inline (`<script>`) tags. Depends on lspconfig      |
+| pdf          | Adds support for viewing PDF documents inside nvim. Depends on [image.nvim](https://github.com/3rd/image.nvim) |
+| mouse        | Various mouse utils in case you can't merry just your keyboard                                                 |
+| colorify     | [NvChad](https://github.com/NvChad/ui) colorify + color picker (WIP)                                           |
 
 
 ### Installation
