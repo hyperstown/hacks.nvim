@@ -1,0 +1,17 @@
+{
+  "name": "inline-js-lsp",
+  "version": "0.1.0",
+  "description": "Supplementary LSP that extracts <script> from HTML and proxies it to typescript-language-server",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "prepare": "echo 'Run npm install before using'"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "vscode-languageserver": "^8.0.0",
+    "typescript": "^5.9.3",
+    "typescript-language-server": "^5.1.3"
+  }
+}

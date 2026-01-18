@@ -1,0 +1,109 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}
+  Test DJ Template
+{% endblock %} 
+{% block extra_css %} 
+  {% comment %}
+  <link rel="stylesheet" href="{% static 'issues/css/issues_index.css' %}" /> 
+  {% endcomment %}
+  <style>
+    .left-panel {
+      background-color: #f0f0f0;
+      padding: 20px;
+      height: 100vh;
+    }
+    .right-panel {
+      padding: 20px;
+    }
+    .input-container {
+      margin-bottom: 15px;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #666;
+    }
+    .logo {
+      margin-top: 10px;
+    }
+    .logo img {
+      height: 40px;
+    }
+  </style>
+{% endblock extra_css %} 
+
+{% block content %}
+  <div class="row">
+    <div class="col-6 sm-12 left-panel">
+      <h1>
+        Welcome to the test DJ template page
+      </h1>
+    </div>
+    <div class="col-6 sm-12 right-panel">
+      <div class="container">
+        <h1>Enter registration form</h1>
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="row">
+            <div class="col-12">
+              <div class="input-container">
+                {{ form.username.as_field_group }}
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="input-container">
+                {{ form.first_name.as_field_group }}
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="input-container">
+                {{ form.last_name.as_field_group }}
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="input-container">
+                {{ form.country.as_field_group }}
+              </div>
+            </div>
+          </div>
+
+          <button type="submit">Login</button>
+        </form>
+        <div class="footer">
+          W przypadku problemów prosimy o kontakt na adres
+          <a href="mailto:example@example.local">example@example.local</a>
+          <div class="logo">
+            <img src="{% static 'logo.svg' %}" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %} 
+
+{% block extra_js %} 
+  <script type="module">
+    import { onMounted, uniqueRandomNumbersArray } from "{% static 'index.js' %}";
+    import { createAutocomplete } from "{% static 'autocomplete.js' %}";
+
+    const country = createAutocomplete({ id: 'country' });
+
+    async function validateUser() {
+      const countryValue = country.INPUT.value;
+      console.log('Selected country:', countryValue);
+    }
+
+    function initListeners() {
+      country.INPUT.addEventListener('change', validateUser);
+    }
+
+
+    onMounted(() => {
+      initListeners()
+    });
+  </script>
+{% endblock extra_js %}
