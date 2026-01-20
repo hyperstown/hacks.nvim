@@ -162,11 +162,11 @@ local function create_tab(buf, active, name)
   local tab_name = name or ("term: b" .. tostring(buf))
   return ""
     .. "%#NvTermWinbarButton" .. is_active .. "#"
-    .. "%@v:lua.require'nvchad.term'.focus_term'" .. tostring(buf) .. "'@"
+    .. "%@v:lua.require'hacks.term'.focus_term'" .. tostring(buf) .. "'@"
     .. "   " .. tab_name .. " "
     .. "%X"
     .. "%#NvTermWinbarClose" .. is_active .. "#"
-    .. "%@v:lua.require'nvchad.term'.emit_close'" .. tostring(buf) .. "'@"
+    .. "%@v:lua.require'hacks.term'.emit_close'" .. tostring(buf) .. "'@"
     .. " "
     .. "%X"
     .. "%#NvTermWinbar#"
@@ -196,7 +196,7 @@ local function render_winbar(win)
     .. " "               -- reset back to background so close doesn't stretch
     -- .. create_tab(num + 1, false)
     .. "%#NvTermWinbarAdd#"          -- small add-button highlight
-    .. "%@v:lua.require'nvchad.term'.add_term_to_window'".. tostring(win) .."'@"
+    .. "%@v:lua.require'hacks.term'.add_term_to_window'".. tostring(win) .."'@" -- TODO make global command
     .. " + "
     .. "%X"
     .. "%#NvTermWinbar#"
