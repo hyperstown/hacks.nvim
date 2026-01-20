@@ -43,16 +43,22 @@ Plugins can be configured through opts.
 {
   "hyperstown/hacks.nvim",
   lazy = false,
-  build = function()
+  build = function(plugin)
     vim.notify("[hacks.nvim] Installing inline-js-ls dependencies…")
 
-    vim.fn.system({
-      "npm",
-      "install",
-      "--silent",
-    }, "lua/hacks/inline-js-ls/js")
+    local result = vim.system(
+      { "npm", "install", "--silent" },
+      { cwd = plugin.dir .. "/lua/hacks/inline_js_ls/js" }
+    ):wait()
 
-    vim.notify("[hacks.nvim] inline-js-ls install complete")
+    if result.code ~= 0 then
+      vim.notify(
+        "[hacks.nvim] npm install failed:\n" .. (result.stderr or ""),
+        vim.log.levels.ERROR
+      )
+    else
+      vim.notify("[hacks.nvim] inline-js-ls install complete")
+    end
   end,
   opts = {
     inline_js_ls = { enabled = true },
