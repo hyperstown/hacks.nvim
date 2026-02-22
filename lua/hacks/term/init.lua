@@ -18,12 +18,12 @@ local pos_data = {
   ["bo vsp"] = { resize = "width", area = "columns" },
 }
 
--- local nvconfig = require "nvconfig"
+local ok, nvconfig = pcall(require, "nvconfig")
 -- local config = nvconfig.term
 
 local config = {
   startinsert = true,
-  base46_colors = false,
+  base46_colors = ok, -- if in NvChad follow colorscheme
   winopts = { number = false, relativenumber = false },
   sizes = { sp = 0.3, vsp = 0.41, ["bo sp"] = 0.3, ["bo vsp"] = 0.41 },
   float = {
